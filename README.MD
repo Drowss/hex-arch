@@ -6,6 +6,7 @@ This project implements a **multi-module structure** using **Gradle**, enabling 
 - **Hexagonal Architecture** for clean separation of concerns.
 - Development principles followed: **KISS**, **YAGNI**, **DRY**.
 - Concepts of **Clean Architecture** applied throughout the codebase.
+- **Reactive Programming:** Implemented using Spring WebFlux to enable non-blocking, asynchronous request handling.
 
 ### ☁️ Infrastructure
 - Deployed using **Kubernetes**.
