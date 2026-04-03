@@ -41,7 +41,7 @@ public class JwtAdapter implements TokenProvider {
                 return signedJWT.serialize();
 
             } catch (JOSEException e) {
-                throw new RuntimeException("Error creating JWT", e);
+                throw new RuntimeException("Error creating JWT " + e.getMessage() +  " " + e.getClass(), e);
             }
         });
     }

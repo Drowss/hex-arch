@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-configmap
+data:
+  init-users.sql: |
+    CREATE TABLE IF NOT EXISTS users (
+                                         id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                                         name TEXT,
+                                         password TEXT,
+                                         email TEXT,
+                                         CONSTRAINT unique_name UNIQUE (name)
+        );

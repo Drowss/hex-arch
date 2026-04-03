@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hexarch-deployment
+  labels:
+    app: hexarch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hexarch
+  template:
+    metadata:
+      labels:
+        app: hexarch
+    spec:
+      containers:
+        - name: hexarch
+          image: hexarch-image:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hexarch-configmap
+                  key: database_url
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hexarch-secret
+                  key: hexarch-database-password
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: hexarch-secret
+                  key: hexarch-jwt-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hexarch-service
+spec:
+  selector:
+    app: hexarch
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 31000
