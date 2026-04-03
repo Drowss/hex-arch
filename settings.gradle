@@ -1,0 +1,16 @@
+rootProject.name = 'hexarch'
+//include 'infrastructure:entry-points:reactive-web'
+include ':reactive-web'
+project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
+include ':app-service'
+project(':app-service').projectDir = file('./infrastructure/app-service')
+include ':model'
+project(':model').projectDir = file('./domain/model')
+include ':usecase'
+project(':usecase').projectDir = file('./domain/usecase')
+include ':security'
+project(':security').projectDir = file('./infrastructure/driven-adapter/security')
+include ':postgresql'
+project(':postgresql').projectDir = file('./infrastructure/driven-adapter/postgresql')
+include ':jwt'
+project(':jwt').projectDir = file('./infrastructure/driven-adapter/jwt')

@@ -1,0 +1,6 @@
+dependencies {
+    implementation "com.nimbusds:nimbus-jose-jwt:${jwtVersion}"
+    implementation 'org.springframework:spring-context'
+    implementation project(':usecase')
+    implementation project(':model')
+}

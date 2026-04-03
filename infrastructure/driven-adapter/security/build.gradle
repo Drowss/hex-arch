@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':usecase')
+    implementation 'org.springframework.security:spring-security-crypto'
+    implementation 'org.springframework:spring-context'
+}

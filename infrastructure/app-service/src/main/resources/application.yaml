@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost:5432}/hexarchdatabase
+    username: postgres
+    password: "${DB_PASSWORD:secretpassword}"
+
+  sql:
+    init:
+      mode: always
+adapter:
+  jwt:
+    secret: "${JWT_SECRET:MiSuperSecretoUltraLargoDe32Caracteres!}"
