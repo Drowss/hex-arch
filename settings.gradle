@@ -14,3 +14,5 @@ include ':postgresql'
 project(':postgresql').projectDir = file('./infrastructure/driven-adapter/postgresql')
 include ':jwt'
 project(':jwt').projectDir = file('./infrastructure/driven-adapter/jwt')
+include ':redis'
+project(':redis').projectDir = file('./infrastructure/driven-adapter/redis')
