@@ -49,3 +49,20 @@ This will clean up the Kubernetes cluster and remove all application resources.
 | `/api/v1/user`       | POST   | `{ "name": "developer", "password": "1234", "metadata": { "email": "test@gmail.com", "age": 18 } }` |
 | `/api/v1/user/login` | POST   | `{ "name": "developer", "password": "1234" }`                                                       |
 | `/api/v1/user`       | GET    | *No body required, but login is required*                                                           |
+
+### 🗄️ Caching Strategies
+
+Se implementaron las 3 estrategias de caching usando **Redis** como cache reactivo:
+
+| Estrategia      | Endpoint                              | Method | Descripción                                                        |
+|-----------------|---------------------------------------|--------|--------------------------------------------------------------------|
+| Cache Aside     | `/api/v1/product/cache-aside/{id}`    | GET    | Busca en cache, si no está va a DB (5s simulados) y guarda en cache |
+| Write Through   | `/api/v1/product/write-through`       | POST   | Escribe en DB y cache en paralelo (`Mono.zip`)                     |
+| Write Behind    | `/api/v1/product/write-behind`        | POST   | Escribe en cache y responde, DB se actualiza async                 |
+
+Body para write-through y write-behind:
+```json
+{ "id": "10", "name": "Monitor 4K", "price": 349.99 }
+```
+
+Productos disponibles en la fake DB: `1` (Laptop), `2` (Mouse), `3` (Teclado).
