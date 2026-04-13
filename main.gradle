@@ -21,5 +21,10 @@ subprojects {
         dependencies.add("implementation", "net.logstash.logback:logstash-logback-encoder:${logstashLogbackVersion}")
         implementation 'io.projectreactor:reactor-core'
         implementation 'io.projectreactor.addons:reactor-extra'
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        testImplementation 'org.mockito:mockito-core'
+        testImplementation 'org.mockito:mockito-junit-jupiter'
+        testImplementation 'io.projectreactor:reactor-test'
     }
 }
