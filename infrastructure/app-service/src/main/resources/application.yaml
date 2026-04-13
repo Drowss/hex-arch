@@ -4,6 +4,11 @@ spring:
     username: postgres
     password: "${DB_PASSWORD:12134}"
 
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
   sql:
     init:
       mode: always

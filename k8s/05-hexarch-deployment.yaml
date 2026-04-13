@@ -36,6 +36,16 @@ spec:
                 secretKeyRef:
                   name: hexarch-secret
                   key: hexarch-jwt-secret
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hexarch-configmap
+                  key: redis_host
+            - name: REDIS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hexarch-configmap
+                  key: redis_port
 ---
 apiVersion: v1
 kind: Service

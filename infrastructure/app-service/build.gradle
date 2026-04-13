@@ -12,4 +12,5 @@ dependencies {
     implementation project(':postgresql')
     implementation project(':security')
     implementation project(':jwt')
+    implementation project(':redis')
 }

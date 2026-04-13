@@ -4,3 +4,5 @@ metadata:
   name: hexarch-configmap
 data:
   database_url: postgres-service:5432
+  redis_host: redis-service
+  redis_port: "6379"
